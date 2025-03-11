@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 public class ControllerProduto {
 
     @PostMapping
-    public ResponseEntity<String> create() {
+    public ResponseEntity<String> create(@RequestBody Produto produto) {
         return ResponseEntity.status(201).body("Produto cadastrado");
     }
 
