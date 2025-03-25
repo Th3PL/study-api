@@ -1,4 +1,4 @@
-package com.github.th3pl.study_apix;
+package com.github.th3pl.study_apix.Model;
 
 public class Produto {
     private Long id;

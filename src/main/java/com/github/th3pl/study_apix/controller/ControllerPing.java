@@ -1,4 +1,4 @@
-package com.github.th3pl.study_apix;
+package com.github.th3pl.study_apix.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
