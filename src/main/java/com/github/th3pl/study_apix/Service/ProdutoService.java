@@ -1,31 +1,24 @@
 package com.github.th3pl.study_apix.Service;
 
 import com.github.th3pl.study_apix.Model.Produto;
+import com.github.th3pl.study_apix.dto.ProdutoRequestCreate;
+import com.github.th3pl.study_apix.repository.ProdutoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ProdutoService {
+public class ProdutoService  {
 
-    List<Produto> produtos = new ArrayList<>();
-    private long id = 1L;
+    @Autowired
+    private ProdutoRepository proutoRepository;
 
-
-    public Produto save(Produto request) {
-        request.setId(id++);
-        produtos.add(request);
-        return request;
+    public Produto save(ProdutoRequestCreate dto) {
+        Produto produto = new Produto();
+        produto.setNome(dto.getNome());
+        return proutoRepository.save(produto);
     }
 
-
-    public Produto find(long id) {
-        for (Produto i : produtos){
-            if (i.getId() ==  id){
-                return i;
-            }
-        }
-        return null;
-    }
 }

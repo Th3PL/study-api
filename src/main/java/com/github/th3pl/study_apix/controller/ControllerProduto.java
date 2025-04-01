@@ -2,6 +2,7 @@ package com.github.th3pl.study_apix.controller;
 
 import com.github.th3pl.study_apix.Model.Produto;
 import com.github.th3pl.study_apix.Service.ProdutoService;
+import com.github.th3pl.study_apix.dto.ProdutoRequestCreate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,9 +15,9 @@ public class ControllerProduto {
     private ProdutoService produtoService;
 
     @PostMapping
-    public ResponseEntity<Produto> create(@RequestBody Produto request) {
+    public ResponseEntity<Produto> create(@RequestBody ProdutoRequestCreate dto) {
 
-        Produto produto = produtoService.save(request);
+        Produto produto = produtoService.save(dto);
         return ResponseEntity.status(201).body(produto);
     }
 
@@ -26,9 +27,8 @@ public class ControllerProduto {
     }
 
     @GetMapping
-    public Produto find(long id) {
-        Produto produto = produtoService.find(id);
-        return produto;
+    public Produto find() {
+        return null;
     }
 
     @DeleteMapping
