@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProdutoService  {
@@ -21,4 +22,19 @@ public class ProdutoService  {
         return proutoRepository.save(produto);
     }
 
+    public List<Produto> findAll() {
+        return proutoRepository.findAll();
+    }
+
+    public Optional<Produto> findById(Long id) {
+        return proutoRepository.findById(id);
+    }
+
+    public boolean deleteById(Long id) {
+       if(proutoRepository.existsById(id)) {
+           proutoRepository.deleteById(id);
+           return true;
+       }
+        return false;
+    }
 }
